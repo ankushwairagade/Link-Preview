@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Link Preview</title>
+
+</head>
+<body>
+<h1 class="text-center"> Link Preview</h1>
+
+
+
+<div class="position-absolute top-50 start-50 translate-middle">
+
+<div class="card" style="width: 18rem;">
+
+    <!-- check if url is null skipped this..  else -->
+    <div th:if="${url != null && title != null && desc != null} ">
+
+    <img src=" " class="card-img-top" alt="..." th:src="${img}">
+    <div class="card-body">
+        <h5 class="card-title"  th:text="${title}"></h5>
+        <p class="card-text"  th:text="${desc}"></p>
+        <a href="" class="btn btn-primary"  th:href=${url}>Link</a>
+    </div>
+
+    </div>
+</div>
+
+
+
+    <form action="/link" method="GET">
+    <br>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Link</span>
+        <input type="text" name="url" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <button class="btn btn-outline-secondary" type="submit">submit</button>
+    </div>
+</form>
+</div>
+
+
+
+</body>
+</html>
